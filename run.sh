@@ -1,17 +1,22 @@
 #!/bin/bash
 
-VOLUME_HOME="/var/lib/mysql"
+# add php settings
+echo upload_max_filesize = ${PHP_UPLOAD_MAX_FILESIZE} >> /usr/local/etc/php/conf.d/php.ini
+echo post_max_size = ${PHP_POST_MAX_SIZE} >> /usr/local/etc/php/conf.d/php.ini
 
-sed -ri -e "s/^upload_max_filesize.*/upload_max_filesize = ${PHP_UPLOAD_MAX_FILESIZE}/" \
-    -e "s/^post_max_size.*/post_max_size = ${PHP_POST_MAX_SIZE}/" /etc/php/7.0/cli/php.ini
-if [[ ! -d $VOLUME_HOME/mysql ]]; then
-    echo "=> An empty or uninitialized MySQL volume is detected in $VOLUME_HOME"
-    echo "=> Installing MySQL ..."
-    mysqld --initialize > /dev/null 2>&1
-    echo "=> Done!"
-    /create-mysql-admin-user.sh
-else
-    echo "=> Using an existing volume of MySQL"
+# add mysql database settings for omeka
+echo -e host = \"${OMEKA_DB_HOST}\" >> /var/www/Omeka/db.ini
+echo -e username = \"${OMEKA_DB_USER}\" >> /var/www/Omeka/db.ini
+echo -e password = \"${OMEKA_DB_PASSWORD}\" >> /var/www/Omeka/db.ini
+echo -e dbname = \"${OMEKA_DB_NAME}\" >> /var/www/Omeka/db.ini
+echo -e prefix = \"${OMEKA_DB_PREFIX}\" >> /var/www/Omeka/db.ini
+echo -e charset = \"${OMEKA_DB_CHARSET}\" >> /var/www/Omeka/db.ini
+
+# enable verbose errors if we're in development
+if [ "$APPLICATION_ENV" = "development" ]; then
+    echo SetEnv APPLICATION_ENV development >> .htaccess
 fi
 
-exec supervisord -n
+# start apache
+source /etc/apache2/envvars
+exec apache2 -D FOREGROUND
