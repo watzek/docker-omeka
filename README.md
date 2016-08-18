@@ -5,6 +5,7 @@
 - copy the contents of `docker-compose.yml` to a local file, or simply clone the whole repo.
 - run `docker-compose up -d` to bring up the `mysql` and `omeka` containers.
 - open a browser and install your Omeka at `localhost:3000`.
+
 #### this will:
 - create a `mysql` container with the latest version of mysql, root password `omeka`, and database named `omeka`
 - make the `mysql` container's database accessible at `./.data/`
