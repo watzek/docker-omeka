@@ -14,7 +14,8 @@ echo -e charset = \"${OMEKA_DB_CHARSET}\" >> /var/www/Omeka/db.ini
 
 # enable verbose errors if we're in development
 if [ "$APPLICATION_ENV" = "development" ]; then
-    echo SetEnv APPLICATION_ENV development >> .htaccess
+    echo SetEnv APPLICATION_ENV development >> /var/www/Omeka/.htaccess
+    echo "log.errors = true" >> /var/www/Omeka/application/config/config.ini
 fi
 
 # start apache

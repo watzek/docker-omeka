@@ -31,8 +31,8 @@ RUN a2dissite 000-default
 ENV APPLICATION_ENV development
 
 # Configure php
-ENV PHP_UPLOAD_MAX_FILESIZE 100M
-ENV PHP_POST_MAX_SIZE 100M
+ENV PHP_UPLOAD_MAX_FILESIZE 10M
+ENV PHP_POST_MAX_SIZE 10M
 
 # Configure mysql
 ENV OMEKA_DB_HOST localhost
@@ -47,5 +47,4 @@ ADD run.sh /run.sh
 RUN chmod 755 /*.sh
 
 # Run the server
-VOLUME /var/www/Omeka
 CMD ["/run.sh"]
