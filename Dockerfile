@@ -8,7 +8,7 @@ RUN docker-php-ext-install exif mysqli
 
 # Install omeka
 WORKDIR /var/www
-RUN git clone https://github.com/omeka/Omeka.git
+RUN git clone --recursive https://github.com/omeka/Omeka.git
 RUN chown -R root.www-data Omeka && chmod 775 Omeka
 WORKDIR /var/www/Omeka
 RUN rm db.ini.changeme
