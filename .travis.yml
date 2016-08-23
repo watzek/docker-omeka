@@ -2,6 +2,10 @@ language: php
 sudo: required
 services:
 - docker
+notifications:
+    webhooks:
+        urls:
+            - https://hooks.microbadger.com/images/watzek/omeka/uIJofxFmDjreMKXsfY3XM7ZGiCw=
 env:
   global:
   - secure: hspQFTVMEXBVg28D1VdZ6MKnt/Ow4ICxr1ogeJuBIP4WvC+c/JdTnI5+ILWCQ2KYTUynA+EL8+MdZKHDMwkfmJYkbb2IjxnB5x4C8Jp781x3ZSy9Td3mWBAlHZPJSO9htI4Se2RNsotlit/b+16LOY2xwyHjxtn+AyxOWyWNqUqyhICn6AcgMTP+iv6LyqEqTxR6uXikFo7P8h+yKcaBCDcLcrA8jO5ZiaAiPmP/abK9MbQ52NXvs+ZRKg2g+lL/db1dlFaQiQRyqnWT5wAsR7AFr/W+EJz7y3i+KtYj/2g2PxCIE0rymKGlAuN12hbMDnReuQh55Q1xjhvUUP12dbs5KMJQ1EMR5VC1Bpy6ZQDRh71fQq0yfmCPnUBdtBSsRVk3rzfC/0qrnd62TTluLXzAgS+nVWdeaBr/unzhK2D8QwiwyKwneDRkidlwSSXYGZbqsbXxDsnSFjuwJix7JBtWvrSKDmQ/fiM5lAnKOxyr8j/xOUcqex3qNZlajOef//lnxfuqikXvNnPw2ZZFZ35Veuun+aqCKZoVvkDfmIgCfD9Qb5u8zekf+bL1/WGcASRrL+zJ7lSRD20NLwpsT6ZWAI3YxgQ98CFZoxfYlMUOFn2d6D1eFTu/GoLQIuu+RjcahOZrdIkVWruzrXzuMmJ8rLnMUxNIQHYQ1ogvmEM=
