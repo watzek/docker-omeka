@@ -1,6 +1,16 @@
 FROM php:7.0-apache
 MAINTAINER Nick Budak <budak@lclark.edu>, Rishi Javia <rishijavia@lclark.edu>
 
+# Build-time metadata as defined at http://label-schema.org
+ARG BUILD_DATE
+ARG VCS_REF
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.docker.dockerfile="/Dockerfile" \
+      org.label-schema.license="Apache" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-type="Git" \
+      org.label-schema.vcs-url="https://github.com/WatzekDigitalInitiatives/docker-omeka"
+
 # Install dependencies
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y git imagemagick
