@@ -1,4 +1,7 @@
-# Omeka for Docker
+# Omeka on Docker
+[![](https://images.microbadger.com/badges/version/watzek/omeka.svg)](http://microbadger.com/images/watzek/omeka "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/watzek/omeka.svg)](https://microbadger.com/images/watzek/omeka "Get your own image badge on microbadger.com") 
+
 ## How to use me:
 ### I just want a fresh, containerized install of Omeka:
 - ensure the latest versions of `docker` and `docker-compose` are installed.
