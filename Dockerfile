@@ -13,7 +13,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 
 # Install dependencies
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y git imagemagick
+RUN apt-get update && apt-get install -y git imagemagick wget unzip
 RUN docker-php-ext-install exif mysqli
 
 # Install omeka
@@ -28,6 +28,11 @@ ADD .htaccess ./.htaccess
 RUN rm application/config/config.ini.changeme
 ADD config.ini application/config/config.ini
 RUN mv application/logs/errors.log.empty application/logs/errors.log
+WORKDIR /var/www/Omeka/plugins
+RUN wget http://omeka.org/wordpress/wp-content/uploads/Omeka-Api-Import-1.1.1.zip
+RUN unzip Omeka-Api-Import-1.1.1.zip
+RUN rm Omeka-Api-Import-1.1.1.zip
+WORKDIR /var/www/Omeka
 RUN find . -type d | xargs chmod 775
 RUN find . -type f | xargs chmod 664
 RUN find files -type d | xargs chmod 777
