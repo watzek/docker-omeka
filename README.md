@@ -9,11 +9,7 @@
 - copy the contents of `docker-compose.yml` to a local file, or simply clone the whole repo.
 - run `docker-compose up -d` to bring up the `mysql` and `omeka` containers.
 - open a browser and install your Omeka at `localhost:8000`.
-
-#### this will:
-- create a `mysql` container with the latest version of mysql, root password `omeka`, and database named `omeka`
-- make the `mysql` container's database accessible at `./.data/`
-- create an `omeka` container with the latest version of Omeka, serving the app to port 8000 locally, linked to the `mysql` container
+- the [Omeka API import plugin](https://omeka.org/add-ons/plugins/omeka-api-import/) is included to easily import data & schema from another Omeka instance.
 
 ### I want to make my own custom Omeka image:
 
