@@ -6,7 +6,7 @@
 ## How to use me:
 ### I just want a fresh, containerized install of Omeka:
 - ensure the latest versions of `docker` and `docker-compose` are installed.
-- copy the contents of `docker-compose.yml` to a local file, or simply clone the whole repo.
+- download [docker-compose.yml](https://cdn.rawgit.com/WatzekDigitalInitiatives/docker-omeka/master/docker-compose.yml).
 - run `docker-compose up -d` to bring up the `mysql` and `omeka` containers.
 - open a browser and install your Omeka at `localhost:8000`.
 - the [Omeka API import plugin](https://omeka.org/add-ons/plugins/omeka-api-import/) is included to easily import data & schema from another Omeka instance.
