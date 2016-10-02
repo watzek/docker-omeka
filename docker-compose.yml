@@ -27,6 +27,6 @@ services:
       OMEKA_DB_NAME: omeka
       OMEKA_DB_PREFIX: _omeka
       OMEKA_DB_CHARSET: utf8
-      PHP_UPLOAD_MAX_FILESIZE: 100M
-      PHP_POST_MAX_SIZE: 100M
+      PHP_UPLOAD_MAX_FILESIZE: 10M
+      PHP_POST_MAX_SIZE: 10M
       APPLICATION_ENV: development
