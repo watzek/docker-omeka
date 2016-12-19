@@ -40,10 +40,12 @@ RUN find files -type f | xargs chmod 666
 
 # Configure apache
 ADD omeka.conf /etc/apache2/sites-available/omeka.conf
+ADD omeka-ssl.conf /etc/apache2/sites-available/omeka-ssl.conf
 RUN a2enmod rewrite
 RUN a2ensite omeka
 RUN a2dissite 000-default
 ENV APPLICATION_ENV development
+ENV HTTPS false
 
 # Configure php
 ENV PHP_UPLOAD_MAX_FILESIZE 10M
@@ -60,6 +62,9 @@ ENV OMEKA_DB_CHARSET utf8
 # Add init script
 ADD run.sh /run.sh
 RUN chmod 755 /*.sh
+
+# Expose 443 for https
+EXPOSE 443
 
 # Run the server
 CMD ["/run.sh"]

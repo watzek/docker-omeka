@@ -18,6 +18,12 @@ if [ "$APPLICATION_ENV" = "development" ]; then
     echo "log.errors = true" >> /var/www/Omeka/application/config/config.ini
 fi
 
+# setup https if it's enabled
+if [ "$HTTPS" = "true" ]; then
+    a2enmod ssl
+    a2ensite omeka-ssl
+fi
+
 # start apache
 source /etc/apache2/envvars
 exec apache2 -D FOREGROUND
