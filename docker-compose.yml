@@ -5,21 +5,26 @@ services:
     volumes:
       - "./.data/db:/var/lib/mysql"
     restart: always
+    networks:
+     - back
     environment:
       MYSQL_ROOT_PASSWORD: omeka
       MYSQL_DATABASE: omeka
       MYSQL_USER: omeka
       MYSQL_PASSWORD: omeka
 
-  omeka:
+  samldev:
     depends_on:
       - db
     image: watzek/omeka:latest
+    volumes:
+      - /etc/nginx/certs/:/etc/ssl/certs:ro
     links:
       - db
-    ports:
-      - "8000:80"
     restart: always
+    networks:
+      - front
+      - back
     environment:
       OMEKA_DB_HOST: db:3306
       OMEKA_DB_USER: omeka
@@ -30,4 +35,12 @@ services:
       PHP_UPLOAD_MAX_FILESIZE: 10M
       PHP_POST_MAX_SIZE: 10M
       APPLICATION_ENV: development
+      VIRTUAL_HOST: samldev.watzek.cloud
+      LETSENCRYPT_HOST: samldev.watzek.cloud
+      LETSENCRYPT_EMAIL: digitalinitiatives@lclark.edu
       HTTPS: "true"
+networks:
+  front:
+    external: true
+  back:
+    external: true

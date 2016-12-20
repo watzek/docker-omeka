@@ -21,7 +21,7 @@ fi
 # setup https if it's enabled
 if [ "$HTTPS" = "true" ]; then
     a2enmod ssl
-    a2ensite omeka-ssl
+    echo "ssl = 'always'" >> /var/www/Omeka/application/config/config.ini
 fi
 
 # start apache
