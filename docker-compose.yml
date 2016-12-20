@@ -25,8 +25,5 @@ services:
       OMEKA_DB_CHARSET: utf8
       PHP_UPLOAD_MAX_FILESIZE: 10M
       PHP_POST_MAX_SIZE: 10M
-      APPLICATION_ENV: development
-      VIRTUAL_HOST: samldev.watzek.cloud
-      LETSENCRYPT_HOST: samldev.watzek.cloud
-      LETSENCRYPT_EMAIL: digitalinitiatives@lclark.edu
+      APPLICATION_ENV: production
       HTTPS: "false"
