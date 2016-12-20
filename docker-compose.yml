@@ -1,30 +1,21 @@
 version: '2'
+
 services:
+
   db:
     image: mysql:latest
-    volumes:
-      - "./.data/db:/var/lib/mysql"
-    restart: always
-    networks:
-     - back
     environment:
       MYSQL_ROOT_PASSWORD: omeka
       MYSQL_DATABASE: omeka
       MYSQL_USER: omeka
       MYSQL_PASSWORD: omeka
 
-  samldev:
-    depends_on:
-      - db
+  omeka:
     image: watzek/omeka:latest
-    volumes:
-      - /etc/nginx/certs/:/etc/ssl/certs:ro
     links:
       - db
-    restart: always
-    networks:
-      - front
-      - back
+    ports:
+      - "80:80"
     environment:
       OMEKA_DB_HOST: db:3306
       OMEKA_DB_USER: omeka
@@ -38,9 +29,4 @@ services:
       VIRTUAL_HOST: samldev.watzek.cloud
       LETSENCRYPT_HOST: samldev.watzek.cloud
       LETSENCRYPT_EMAIL: digitalinitiatives@lclark.edu
-      HTTPS: "true"
-networks:
-  front:
-    external: true
-  back:
-    external: true
+      HTTPS: "false"
