@@ -40,7 +40,6 @@ RUN find files -type f | xargs chmod 666
 
 # Configure apache
 ADD omeka.conf /etc/apache2/sites-available/omeka.conf
-ADD omeka-ssl.conf /etc/apache2/sites-available/omeka-ssl.conf
 RUN a2enmod rewrite
 RUN a2ensite omeka
 RUN a2dissite 000-default
