@@ -15,7 +15,7 @@ docker-compose up -d
 
 navigate to `localhost` in a browser and install your new Omeka. the [Omeka API import plugin](https://omeka.org/add-ons/plugins/omeka-api-import/) is included to easily import data & schema from another Omeka instance.
 
-you can edit the `HTTPS` parameter in `docker-compose.yml` to force Omeka to use https.
+if you are using a proxy in front of the container like (nginx-proxy)[https://github.com/jwilder/nginx-proxy] with https, you can edit the `HTTPS` parameter in `docker-compose.yml` to force Omeka to use https:// urls to avoid mixed content errors.
 
 ### I want to make my own custom Omeka image:
 
