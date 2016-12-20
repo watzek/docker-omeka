@@ -2,6 +2,9 @@ language: php
 sudo: required
 services:
 - docker
+branches:
+    only:
+        - master
 notifications:
     slack:
         - watzekdi:zEtuD1WHpN9DYmzZFzTsfudX#general
