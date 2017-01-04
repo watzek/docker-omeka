@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # add php settings
-echo memory_limit = ${PHP_MEMORY_LIMIT} >> >> /usr/local/etc/php/conf.d/php.ini
+echo memory_limit = ${PHP_MEMORY_LIMIT} >> /usr/local/etc/php/conf.d/php.ini
 echo upload_max_filesize = ${PHP_UPLOAD_MAX_FILESIZE} >> /usr/local/etc/php/conf.d/php.ini
 echo post_max_size = ${PHP_POST_MAX_SIZE} >> /usr/local/etc/php/conf.d/php.ini
 
