@@ -1,6 +1,6 @@
 # Omeka on Docker
 
-[![Build Status](https://travis-ci.org/WatzekDigitalInitiatives/docker-omeka.svg?branch=master)](https://travis-ci.org/WatzekDigitalInitiatives/docker-omeka) [![](https://images.microbadger.com/badges/version/watzek/omeka.svg)](http://microbadger.com/images/watzek/omeka "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/watzek/omeka.svg)](https://microbadger.com/images/watzek/omeka "Get your own image badge on microbadger.com")
+[![Build Status](https://travis-ci.org/watzek/docker-omeka.svg?branch=master)](https://travis-ci.org/watzek/docker-omeka) [![](https://images.microbadger.com/badges/version/watzek/omeka.svg)](http://microbadger.com/images/watzek/omeka "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/watzek/omeka.svg)](https://microbadger.com/images/watzek/omeka "Get your own image badge on microbadger.com")
 
 ## How to use me:
 
@@ -9,7 +9,7 @@
 ensure the latest versions of `docker` and `docker-compose` are installed.
 
 ```
-curl -o https://raw.githubusercontent.com/WatzekDigitalInitiatives/docker-omeka/master/docker-compose.yml
+curl -o https://raw.githubusercontent.com/watzek/docker-omeka/master/docker-compose.yml
 docker-compose up -d
 ```
 
@@ -20,7 +20,7 @@ if you are using a proxy in front of the container like [nginx-proxy](https://gi
 ### I want to make my own custom Omeka image:
 
 ```
-git clone https://github.com/WatzekDigitalInitiatives/docker-omeka.git
+git clone https://github.com/watzek/docker-omeka.git
 docker build -t my-custom-omeka .
 ```
 
